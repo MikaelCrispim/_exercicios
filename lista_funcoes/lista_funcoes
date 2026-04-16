@@ -1,0 +1,179 @@
+# Exercicio 1
+def saudacao(nomeUsuario):
+    print(f"Olá, {nomeUsuario}")
+
+# Exercicio 2
+def calcularArea(base, altura):
+    areaTotal = base * altura
+    print(f"A área do retângulo é: {areaTotal}cm²")
+
+# Exercicio 3
+def maiorValor(valorA, valorB):
+    print(f"O maior entre {valorA} e {valorB} é: {max(valorA, valorB)}")
+
+# Exercicio 4
+def verificarPar(numero):
+    if numero % 2 == 0:
+        print(f"O {numero} é par")
+    else:
+        print(f"O {numero} é ímpar")
+
+# Exercicio 5
+def mediaSimples(nota1, nota2, nota3):
+    print(f"A média é: {(nota1 + nota2 + nota3) / 3}")
+
+# Exercicio 6
+def mediaLista(listaNumeros):
+    media = sum(listaNumeros) / len(listaNumeros)
+    print(f"A média é: {media}")
+
+# Exercicio 7
+def tempConversor(grausCelsius):
+    grausFahrenheit = (grausCelsius * (9/5)) + 32
+    print(f"A temperatura {grausCelsius}C° em Fahrenheit é {grausFahrenheit}F°")
+
+# Exercicio 8
+def contadorVogal(fraseCompleta):
+    vogais = ['a', 'e', 'i', 'o', 'u']
+    cont = 0
+    for letra in vogais:
+        for caractere in fraseCompleta.lower():
+            if letra == caractere:
+                cont += 1
+    print(f"A frase tem {cont} vogais")
+
+# Exercicio 9
+def calcularFatorial(numeroFatorial):
+    if numeroFatorial == 0:
+        numeroFatorial = 1
+    else:
+        for i in range(1, numeroFatorial):
+            numeroFatorial *= i
+    print(f"O fatorial é: {numeroFatorial}")
+
+# Exercicio 10
+def inverterTexto(Original):
+    print(Original[::-1])
+
+# Exercicio 11
+def leiaInt(mensagemInput):
+    while True:
+        valor = input(mensagemInput)
+        if valor.isnumeric() or (valor.startswith('-') and valor[1:].isnumeric()):
+            return int(valor)
+        print("Erro: Por favor, digite um número inteiro válido.")
+
+# Exercicio 12
+def configurarPerfil(nomePerfil, idadePerfil, cidadePerfil="Desconhecida"):
+    print(f"Perfil Configurado")
+    print(f"Nome: {nomePerfil} | Idade: {idadePerfil} | Cidade: {cidadePerfil}")
+
+# Exercicio 13
+def calcularFibonacci(posicaoN):
+    if posicaoN <= 0:
+        return 0
+    elif posicaoN == 1:
+        return 1
+    else:
+        return calcularFibonacci(posicaoN - 1) + calcularFibonacci(posicaoN - 2)
+
+# Exercicio 14
+variavelGlobal = "Eu sou uma variável GLOBAL"
+
+def demonstrarEscopo():
+    variavelLocal = "Eu sou uma variável LOCAL"
+    print(f"Acessando dentro da função: {variavelLocal}")
+    print(f"Acessando dentro da função: {variavelGlobal}")
+
+# Exercicio 15
+def encontrarProdutoMaisCaro(listaProdutos):
+    if not listaProdutos:
+        return None
+    produtoMaisCaro = listaProdutos[0]
+    for produtoAtual in listaProdutos:
+        if produtoAtual['preco'] > produtoMaisCaro['preco']:
+            produtoMaisCaro = produtoAtual
+    return produtoMaisCaro
+
+print("Exercício 1")
+Nome = input("Digite o seu nome: ")
+saudacao(Nome)
+
+print("Exercício 2")
+Base = float(input("Digite a base do retângulo: "))
+Altura = float(input("Digite a altura do retângulo: "))
+calcularArea(Base, Altura)
+
+print("Exercício 3")
+valorA = float(input("Digite o primeiro valor: "))
+valorB = float(input("Digite o segundo valor: "))
+maiorvalor(valorA, valorB)
+
+print("Exercício 4")
+NumeroPar = int(input("Digite um número inteiro para verificar se é par ou ímpar: "))
+verificarPar(NumeroPar)
+
+print("Exercício 5")
+Nota1 = float(input("Digite a primeira nota: "))
+Nota2 = float(input("Digite a segunda nota: "))
+Nota3 = float(input("Digite a terceira nota: "))
+mediaSimples(Nota1, Nota2, Nota3)
+
+print("Exercício 6")
+StringLista = input("Digite os números da lista separados por espaço: ")
+listaDeNumeros = [float(x) for x in StringLista.split()]
+mediaLista(listaDeNumeros)
+
+print("Exercício 7")
+GrausCelsius = float(input("Digite a temperatura em Celsius: "))
+tempConversor(GrausCelsius)
+
+print("Exercício 8")
+Frase = input("Digite uma frase para contar as vogais: ")
+contadorVogal(Frase)
+
+print("Exercício 9")
+Fatorial = int(input("Digite um número inteiro para calcular o fatorial: "))
+calcularFatorial(Fatorial)
+
+print("Exercício 10")
+Texto = input("Digite um texto para ser invertido: ")
+inverterTexto(Texto)
+
+print("Exercício 11")
+numeroValidado = leiaInt("Digite um número inteiro (o programa não vai aceitar letras!): ")
+print(f"Você digitou com sucesso o número inteiro: {numeroValidado}")
+
+print("Exercício 12")
+NomePerfil = input("Digite o nome para o perfil: ")
+IdadePerfil = leiaInt("Digite a idade para o perfil: ") 
+CidadePerfil = input("Digite a cidade ou aperte ENTER para deixar vazio: ").strip()
+
+if CidadePerfil == "":
+    configurarPerfil(NomePerfil, IdadePerfil)
+else:
+    configurarPerfil(NomePerfil, IdadePerfil, CidadePerfil)
+
+print("Exercício 13")
+Fibonacci = leiaInt("Digite a posição N desejada na sequência de Fibonacci: ")
+resultadoFibonacci = calcularFibonacci(Fibonacci)
+print(f"O {Fibonacci}º termo da sequência de Fibonacci é: {resultadoFibonacci}")
+
+print("Exercício 14")
+input("Aperte ENTER para demonstrar o escopo de variáveis: ")
+demonstrarEscopo()
+print(f"Acessando a variável global fora da função: {variavelGlobal}")
+print("Nota: A variável local não pode ser impressa aqui fora, pois ela só existe dentro da função.")
+
+print("Exercício 15")
+quantidadeProdutos = leiaInt("Quantos produtos você deseja cadastrar? ")
+catalogoProdutos = []
+
+for i in range(quantidadeProdutos):
+    nomeDoProduto = input(f"Nome do {i+1}º produto: ")
+    precoDoProduto = float(input(f"Preço do {nomeDoProduto}: R$"))
+    catalogoProdutos.append({"nome": nomeDoProduto, "preco": precoDoProduto})
+
+produtoVencedor = encontrarProdutoMaisCaro(catalogoProdutos)
+if produtoVencedor:
+    print(f"O produto mais caro é '{produtoVencedor['nome']}' custando R${produtoVencedor['preco']:.2f}")
